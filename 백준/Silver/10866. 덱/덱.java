@@ -1,12 +1,15 @@
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
 
-        LinkedList<Integer> deque = new LinkedList<>();
+        Deque<Integer> deque = new ArrayDeque<>();
 
         while (N-- > 0) {
             String command = br.readLine();
@@ -24,8 +27,7 @@ public class Main {
                 // [3] pop_front
             } else if (command.equals("pop_front")) {
                 if (!deque.isEmpty()) {
-                    System.out.println(deque.getFirst());
-                    deque.removeFirst();
+                    System.out.println(deque.pollFirst());
                 } else {
                     System.out.println(-1);
                 }
@@ -33,8 +35,7 @@ public class Main {
                 // [4] pop_back
             } else if (command.equals("pop_back")) {
                 if (!deque.isEmpty()) {
-                    System.out.println(deque.getLast());
-                    deque.removeLast();
+                    System.out.println(deque.pollLast());
                 } else {
                     System.out.println(-1);
                 }
@@ -50,7 +51,7 @@ public class Main {
                 // [7] front
             } else if (command.equals("front")) {
                 if (!deque.isEmpty()) {
-                    System.out.println(deque.getFirst());
+                    System.out.println(deque.peekFirst());
                 } else {
                     System.out.println(-1);
                 }
@@ -58,7 +59,7 @@ public class Main {
                 // [8] back
             } else if (command.equals("back")) {
                 if (!deque.isEmpty()) {
-                    System.out.println(deque.getLast());
+                    System.out.println(deque.peekLast());
                 } else {
                     System.out.println(-1);
                 }
