@@ -1,14 +1,10 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import java.util.StringTokenizer;
 
 public class Main {
-
-    static int N, M, K, r, c;
+    static int N, M;
     static boolean[][] grid;
     static boolean[][] visited;
     static int[][] directions = {
@@ -21,54 +17,55 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
         StringTokenizer st = new StringTokenizer(br.readLine());
+
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
-        K = Integer.parseInt(st.nextToken());
+        int K = Integer.parseInt(st.nextToken()); // 음식물 개수
 
-        grid = new boolean[N+1][M+1];
-        visited = new boolean[N+1][M+1];
+        // 배열 초기화
+        // 0-indexed, 입력 시 -1
+        grid = new boolean[N][M];
+        visited = new boolean[N][M];
 
+        // 음식물 좌표 K개 입력
         for (int i = 0; i < K; i++) {
             st = new StringTokenizer(br.readLine());
-            r = Integer.parseInt(st.nextToken());
-            c = Integer.parseInt(st.nextToken());
+            int r = Integer.parseInt(st.nextToken()) - 1; // ⭐ 1-indexed → 0-indexed 변환
+            int c = Integer.parseInt(st.nextToken()) - 1;
 
             grid[r][c] = true;
         }
 
-        List<Integer> garbageCount = new ArrayList<>();
+        // 최대값 저장하는 변수
+        int max = 0;
 
-        for (int i = 0; i < N+1; i++) {
-            for (int j = 0; j < M+1; j++) {
+        // 음식물 덩어리 찾기
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < M; j++) {
 
-                if (i < 0 || i >= N+1 || j < 0 || j >= M+1) continue;
                 if (visited[i][j] || !grid[i][j]) continue;
-
-                garbageCount.add(findGarbage(i, j));
-
+                
+                max = Integer.max(max, getGarbageSize(i, j));
             }
         }
 
-        Collections.sort(garbageCount, Collections.reverseOrder());
-        if (!garbageCount.isEmpty()) {
-            System.out.println(garbageCount.get(0));
-        } else System.out.println(0);
+        System.out.println(max);
+
     }
 
-    public static int findGarbage(int i, int j) {
+    public static int getGarbageSize(int x, int y) {
         int count = 1;
-        visited[i][j] = true;
+        visited[x][y] = true;
 
         for (int[] dir : directions) {
-            int dI = i + dir[0];
-            int dJ = j + dir[1];
+            int adjX = x + dir[0];
+            int adjY = y + dir[1];
 
-            if (dI < 0 || dI >= N+1 || dJ < 0 || dJ >= M+1) continue;
-            if (visited[dI][dJ] || !grid[dI][dJ]) continue;
+            if (adjX < 0 || adjX >= N || adjY < 0 || adjY >= M) continue;
+            if (visited[adjX][adjY] || !grid[adjX][adjY]) continue;
 
-            count += findGarbage(dI, dJ);
+            count += getGarbageSize(adjX, adjY);
         }
 
         return count;
