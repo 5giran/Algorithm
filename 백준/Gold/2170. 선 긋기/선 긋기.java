@@ -20,17 +20,20 @@ public class Main {
             points[i][1] = Integer.parseInt(st.nextToken());
         }
 
+        // 2차원 배열 오름차순 정렬
         Arrays.sort(points, (Comparator.comparingInt(o -> o[0])));
 
+        // 최소, 최대값 첫번째 입력값으로 초기화
         int min = points[0][0];
         int max = points[0][1];
 
-        
+
         int result = 0;
 
 
         for (int i = 1; i < n; i++) {
-            if ((min > points[i][0] && min > points[i][1]) || (max < points[i][0] && max < points[i][1])) {
+            // 안겹치는 선 조건
+            if (max < points[i][0] && max < points[i][1]) {
 
                 // 선이 끊김. 지금까지 합쳐진 선의 길이 더하기
                 result += max - min;
@@ -46,9 +49,6 @@ public class Main {
         }
 
         result += max - min;
-
-
-
         System.out.println(result);
 
     }
