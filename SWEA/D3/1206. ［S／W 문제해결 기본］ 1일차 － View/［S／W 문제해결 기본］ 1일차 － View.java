@@ -8,35 +8,33 @@ public class Solution {
         StringTokenizer st;
 
         int T = 10;
+        int N;
 
         int number = 1;
 
         while (T-- > 0) {
-            int N = Integer.parseInt(br.readLine());
+            N = Integer.parseInt(br.readLine());
             int[] building = new int[N];
-            int view = 0;
 
             st = new StringTokenizer(br.readLine());
-            for (int i = 0; i < N - 1; i++) {
+            for (int i = 0; i < N; i++) {
                 building[i] = Integer.parseInt(st.nextToken());
             }
 
+            int count = 0;
+            // 앞뒤 2개씩은 빼고 루프
             for (int i = 2; i < N - 2; i++) {
 
-                if (building[i] > building[i - 1] && building[i] > building[i - 2] && building[i] > building[i + 1] && building[i] > building[i + 2]) {
-                    int maxLeft = Math.max(building[i - 1], building[i - 2]);
-                    int maxRight = Math.max(building[i + 1], building[i + 2]);
-                    int maxTotal = Math.max(maxLeft, maxRight);
-                    view += building[i] - maxTotal;
+                for (int j = 0; j < 999; j++) {
+                    if ((building[i] - j) > building[i - 1] && (building[i] - j) > building[i - 2] && (building[i] - j) > building[i + 1] && (building[i] - j) > building[i + 2]) count++;
+                    else break;
                 }
 
             }
 
-            bw.write("#" + number + " " + view + "\n");
+            bw.write("#" + number + " " + count + "\n");
 
             number++;
-
-
         }
 
         bw.flush();
