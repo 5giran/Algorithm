@@ -7,14 +7,14 @@ public class Solution {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
         
-        for (int tc = 1; tc < 11; tc++) {
+        for (int tc = 1; tc <= 10; tc++) {
             int dump = Integer.parseInt(br.readLine());
 
             // 1-100까지 카운트 입력
             int[] count = new int[101];
             st = new StringTokenizer(br.readLine());
             for (int i = 0; i < 100; i++) {
-                if (!st.hasMoreTokens()) break;
+                // if (!st.hasMoreTokens()) break;
                 int input = Integer.parseInt(st.nextToken());
 
                 count[input]++;
@@ -27,8 +27,12 @@ public class Solution {
 
             // 덤프 실행
             for (int i = 0; i < dump; i++) {
-                while (count[min] == 0 && max - min > 1) min++;
-                while (count[max] == 0 && max - min > 1) max--;
+                // 데이터가 있는 경우 바로 최소값과 최대값임
+                while (count[min] == 0) min++;
+                while (count[max] == 0) max--;
+
+                // 평탄화 완료 시 즉시종료
+                if (max - min <= 1) break;
 
                 count[max]--; // 가장 높은 높이 상자 하나 줄어듬
                 count[max - 1]++; // 위의 그 상자는 -1상자에 추가됨
@@ -36,8 +40,8 @@ public class Solution {
                 count[min + 1]++;
             }
 
-            while (count[min] == 0 && max - min > 1) min++;
-            while (count[max] == 0 && max - min > 1) max--;
+            while (count[min] == 0) min++;
+            while (count[max] == 0) max--;
 
             int result = max - min;
 
