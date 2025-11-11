@@ -51,7 +51,7 @@ public class Solution {
                 }
             }
 
-            int sumM = Math.max(sumLeft, sumLeft);
+            int sumM = Math.max(sumLeft, sumRight);
             if (max < sumM) max = sumM;
 
             sb.append("#").append(num).append(" ").append(max).append("\n");
