@@ -22,39 +22,33 @@ public class Solution {
                 }
             }
 
-            int max = 0;
+            int maxSum = 0;
+            int sumDia1 = 0;
+            int sumDia2 = 0;
 
-            // 행, 열
             for (int i = 0; i < N; i++) {
                 int sumRow = 0;
                 int sumCol = 0;
+
                 for (int j = 0; j < N; j++) {
                     sumRow += arr[i][j];
                     sumCol += arr[j][i];
                 }
 
-                int sumM = Math.max(sumRow, sumCol);
-                if (max < sumM) max = sumM;
+
+                maxSum = Math.max(maxSum, sumRow);
+                maxSum = Math.max(maxSum, sumCol);
+                
+                sumDia1 += arr[i][i];
+                sumDia2 += arr[i][N - 1 - i];
             }
 
-            int sumLeft = 0;
-            // 왼쪽 시작 대각선
-            for (int i = 0; i < N; i++) {
-                sumLeft += arr[i][i];
-            }
 
-            int sumRight = 0;
-            // 오른쪽 시작 대각선
-            for (int i = 0; i < N; i++) {
-                for (int j = N - 1; j <= 0; j--) {
-                    sumRight += arr[i][j];
-                }
-            }
+            maxSum = Math.max(maxSum, sumDia1);
+            maxSum = Math.max(maxSum, sumDia2);
 
-            int sumM = Math.max(sumLeft, sumRight);
-            if (max < sumM) max = sumM;
 
-            sb.append("#").append(num).append(" ").append(max).append("\n");
+            sb.append("#").append(num).append(" ").append(maxSum).append("\n");
         }
 
         System.out.print(sb);
