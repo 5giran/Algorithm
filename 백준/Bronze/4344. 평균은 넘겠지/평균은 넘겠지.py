@@ -3,20 +3,16 @@ input = sys.stdin.readline
 
 c = int(input())
 p_list = list()
+data = list()
 
 for _ in range(c):
-    s_list = list(map(int, input().split()))
-    s_count = s_list[0]
-    ab = 0
+    data = list(map(int, input().split()))
+    count = data[0]
+    scores = data[1:]
+    avg = sum(scores)/count
+    above = sum(1 for s in scores if s > avg)
 
-    s_sum = sum(s_list[1:])
-    s_ave = s_sum/s_count
-
-    for s in s_list[1:]:
-        if s_ave < s:
-            ab += 1
-
-    p_list.append(f"{round(ab/s_count*100, 3):.3f}%")
+    p_list.append(f"{round(above/count*100, 3):.3f}%")
 
 for p in p_list:
     print(p)
