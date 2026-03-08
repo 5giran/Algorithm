@@ -1,20 +1,16 @@
+from collections import Counter
 import sys
 input = sys.stdin.readline
 
+
 word = input().upper().strip()
-d = {}
 
-for w in word:
-    if w not in d:
-        d[w] = 0
-    if w in d:
-        d[w] += 1
+word_cnt = Counter(word)
 
-max_value = max(d.values())
+max_cnt = max(word_cnt.values())
+max_ap = [k for k, v in word_cnt.items() if max_cnt == v]
 
-max = [k for k, v in d.items() if max_value == v]
-
-if len(max) == 1:
-    print(max[0])
+if len(max_ap) == 1:
+    print(max_ap[0])
 else:
     print("?")
