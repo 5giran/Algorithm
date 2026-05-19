@@ -5,6 +5,7 @@
 ## Array
 |  |
 | ------- |
+| [0031-next-permutation](https://github.com/5giran/Algorithm/tree/master/0031-next-permutation) |
 | [0049-group-anagrams](https://github.com/5giran/Algorithm/tree/master/0049-group-anagrams) |
 | [0198-house-robber](https://github.com/5giran/Algorithm/tree/master/0198-house-robber) |
 ## Hash Table
@@ -48,4 +49,8 @@
 |  |
 | ------- |
 | [0070-climbing-stairs](https://github.com/5giran/Algorithm/tree/master/0070-climbing-stairs) |
+## Two Pointers
+|  |
+| ------- |
+| [0031-next-permutation](https://github.com/5giran/Algorithm/tree/master/0031-next-permutation) |
 <!---LeetCode Topics End-->
