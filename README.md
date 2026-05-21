@@ -53,4 +53,12 @@
 |  |
 | ------- |
 | [0031-next-permutation](https://github.com/5giran/Algorithm/tree/master/0031-next-permutation) |
+## Linked List
+|  |
+| ------- |
+| [0024-swap-nodes-in-pairs](https://github.com/5giran/Algorithm/tree/master/0024-swap-nodes-in-pairs) |
+## Recursion
+|  |
+| ------- |
+| [0024-swap-nodes-in-pairs](https://github.com/5giran/Algorithm/tree/master/0024-swap-nodes-in-pairs) |
 <!---LeetCode Topics End-->
