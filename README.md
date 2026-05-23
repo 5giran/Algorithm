@@ -5,6 +5,7 @@
 ## Array
 |  |
 | ------- |
+| [0027-remove-element](https://github.com/5giran/Algorithm/tree/master/0027-remove-element) |
 | [0031-next-permutation](https://github.com/5giran/Algorithm/tree/master/0031-next-permutation) |
 | [0049-group-anagrams](https://github.com/5giran/Algorithm/tree/master/0049-group-anagrams) |
 | [0198-house-robber](https://github.com/5giran/Algorithm/tree/master/0198-house-robber) |
@@ -52,6 +53,7 @@
 ## Two Pointers
 |  |
 | ------- |
+| [0027-remove-element](https://github.com/5giran/Algorithm/tree/master/0027-remove-element) |
 | [0031-next-permutation](https://github.com/5giran/Algorithm/tree/master/0031-next-permutation) |
 ## Linked List
 |  |
