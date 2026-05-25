@@ -40,6 +40,7 @@
 ## Math
 |  |
 | ------- |
+| [0009-palindrome-number](https://github.com/5giran/Algorithm/tree/master/0009-palindrome-number) |
 | [0070-climbing-stairs](https://github.com/5giran/Algorithm/tree/master/0070-climbing-stairs) |
 ## Dynamic Programming
 |  |
