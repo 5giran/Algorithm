@@ -16,6 +16,7 @@
 ## String
 |  |
 | ------- |
+| [0022-generate-parentheses](https://github.com/5giran/Algorithm/tree/master/0022-generate-parentheses) |
 | [0049-group-anagrams](https://github.com/5giran/Algorithm/tree/master/0049-group-anagrams) |
 ## Sorting
 |  |
@@ -45,6 +46,7 @@
 ## Dynamic Programming
 |  |
 | ------- |
+| [0022-generate-parentheses](https://github.com/5giran/Algorithm/tree/master/0022-generate-parentheses) |
 | [0070-climbing-stairs](https://github.com/5giran/Algorithm/tree/master/0070-climbing-stairs) |
 | [0198-house-robber](https://github.com/5giran/Algorithm/tree/master/0198-house-robber) |
 ## Memoization
@@ -64,4 +66,8 @@
 |  |
 | ------- |
 | [0024-swap-nodes-in-pairs](https://github.com/5giran/Algorithm/tree/master/0024-swap-nodes-in-pairs) |
+## Backtracking
+|  |
+| ------- |
+| [0022-generate-parentheses](https://github.com/5giran/Algorithm/tree/master/0022-generate-parentheses) |
 <!---LeetCode Topics End-->
