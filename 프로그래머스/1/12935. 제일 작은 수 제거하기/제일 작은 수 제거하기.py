@@ -1,16 +1,14 @@
 def solution(arr):
-    answer = []
-    n = float('inf') # 양의 무한대로 초기화
+    
+    if len(arr) == 1:
+        return [-1]
+    
+    n = float('inf')
     
     for x in arr:
-        answer.append(x)
-        if x < n:
+        if n > x:
             n = x
             
-    if len(arr) == 1:
-        answer.pop(0)
-        answer.append(-1)
-    else:
-        answer.remove(n)
-        
-    return answer
+    arr.remove(n)
+    
+    return arr
