@@ -1,22 +1,18 @@
 def solution(id_list, report, k):
     mail = {}
-    reports = {}
-    
-    for x in id_list:
-        mail[x] = 0     # value에 최종 리턴할 수 저장
-        reports[x] = [] # value에 유저 신고한놈 저장
-        
-    for i in report:
-        x, y = i.split()
-        if x not in reports[y]:
-            reports[y].append(x)
-            
-    for x in reports:
-        if len(reports[x]) >= k:
-            for y in reports[x]:
-                mail[y] += 1
-                
-    answer = list(mail.values())
-            
-    
-    return answer
+    reporters = {}
+
+    for user in id_list:
+        mail[user] = 0
+        reporters[user] = set()
+
+    for item in report:
+        reporter, reported = item.split()
+        reporters[reported].add(reporter)
+
+    for reported in reporters:
+        if len(reporters[reported]) >= k:
+            for reporter in reporters[reported]:
+                mail[reporter] += 1
+
+    return list(mail.values())
